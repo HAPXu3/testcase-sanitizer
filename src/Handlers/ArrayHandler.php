@@ -10,7 +10,11 @@ class ArrayHandler implements Handler
 {
     public function handle($data)
     {
-        if (!is_array($data) && (array_keys($data) === range(0, count($data) - 1))) {
+        if (
+            !is_array($data)
+            && (array_keys($data) === range(0, count($data) - 1))
+            && (count(array_unique(array_map('gettype', $data))) > 1)
+        ) {
             return new ArrayError;
         }
 
