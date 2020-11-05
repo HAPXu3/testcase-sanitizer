@@ -22,6 +22,32 @@ $result = $sanitizer->sanitize($json, $rules);
 ```string``` - проверка и приведение строковго типа  
 ```structure``` - проверка типа ассоциативный массив  
 
+Для типов ```array``` и ```structure``` можно настроить обработчики:  
+Для ```array```:
+```
+$config = [
+    'array' => [
+        'typeRestrict' => 'string',
+    ]
+];
+```
+Для ```structure```:
+```
+$config = [
+    'structure' => [
+        'fieldsRestrict' => [
+            'baz' => 'string',
+            'foo' => 'integer',
+            'bar' => 'string',
+        ]
+    ]
+];
+```
+Затем:  
+```
+$sanitizer = new App\Sanitizer($config);
+```
+
 Расширение правил возможно двумя способами:
 * Создать объект класса ```App\HandlerFactory```, вызвать метод ```extend``` с именем и классом нового правила и передать объект в конструктор ```App\Sanitizer```
 * Вызвать метод ```addRuleHandler``` с именем и классом нового правила у объекта класса ```App\Sanitizer```
