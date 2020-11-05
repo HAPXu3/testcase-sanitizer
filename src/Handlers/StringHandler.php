@@ -6,7 +6,7 @@ namespace App\Handlers;
 
 use App\Errors\StringError;
 
-class StringHandler implements Handler
+class StringHandler extends BaseHandler
 {
     public function handle($data)
     {

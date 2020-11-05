@@ -6,7 +6,7 @@ namespace App\Handlers;
 
 use App\Errors\PhoneError;
 
-class PhoneHandler implements Handler
+class PhoneHandler extends BaseHandler
 {
     protected const PHONE_PATTERN = '/(\+7|8)\s\([0-9]{3}\)\s[0-9]{3}-[0-9]{2}-[0-9]{2}/';
 

@@ -5,6 +5,8 @@ declare(strict_types = 1);
 namespace App;
 
 use App\Errors\Error;
+use InvalidArgumentException;
+use stdClass;
 
 class Sanitizer
 {
@@ -12,18 +14,18 @@ class Sanitizer
 
     protected array $errors = [];
 
-    public function __construct(HandlerFactory $factory = null)
+    public function __construct(array $config = [], HandlerFactory $factory = null)
     {
-        $this->factory = $factory ?? new HandlerFactory;
+        $this->factory = $factory ?? new HandlerFactory($config);
     }
 
     public function sanitize(array $data, array $rules): object
     {
         if (count($data) !== count($rules)) {
-            throw new \InvalidArgumentException('Count of $data must be equal count of $rules');
+            throw new InvalidArgumentException('Count of $data must be equal count of $rules');
         }
 
-        $result = new \stdClass();
+        $result = new stdClass();
         $dataValues = array_values($data);
         $dataKeys = array_keys($data);
 

@@ -6,7 +6,7 @@ namespace App\Handlers;
 
 use App\Errors\StructureError;
 
-class StructureHandler implements Handler
+class StructureHandler extends BaseHandler
 {
     public function handle($data)
     {

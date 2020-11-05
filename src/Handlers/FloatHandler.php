@@ -6,7 +6,7 @@ namespace App\Handlers;
 
 use App\Errors\FloatError;
 
-class FloatHandler implements Handler
+class FloatHandler extends BaseHandler
 {
     public function handle($data)
     {

@@ -6,7 +6,7 @@ namespace App\Handlers;
 
 use App\Errors\ArrayError;
 
-class ArrayHandler implements Handler
+class ArrayHandler extends BaseHandler
 {
     public function handle($data)
     {
