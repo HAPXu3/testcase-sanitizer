@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace App\Handlers;
 
-abstract class BaseHandler
+abstract class BaseHandler implements Handler
 {
     public function __construct(array $config)
     {
