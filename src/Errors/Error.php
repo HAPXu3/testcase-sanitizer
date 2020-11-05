@@ -8,6 +8,11 @@ abstract class Error
 
     public function __toString()
     {
+        return $this->getMessage();
+    }
+
+    protected function getMessage(): string
+    {
         return 'Could not convert type to ' . $this->getTypeName();
     }
 }
