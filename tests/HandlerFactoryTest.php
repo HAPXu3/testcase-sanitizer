@@ -11,7 +11,7 @@ class HandlerFactoryTest extends TestCase
 {
     public function testExtend()
     {
-        $factory = new HandlerFactory();
+        $factory = new HandlerFactory([]);
         $factory->extend('null', NullHandler::class);
 
         $handler = $factory->createHandler('null');

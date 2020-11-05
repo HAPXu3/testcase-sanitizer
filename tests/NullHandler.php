@@ -4,9 +4,9 @@ declare(strict_types = 1);
 
 namespace Tests;
 
-use App\Handlers\Handler;
+use App\Handlers\BaseHandler;
 
-class NullHandler implements Handler
+class NullHandler extends BaseHandler
 {
     public function handle($data)
     {
